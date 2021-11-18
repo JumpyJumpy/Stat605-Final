@@ -40,3 +40,16 @@ Basic information of the vehicle
 - theft_title: Vehicle that was stolen and later recovered.
 #### Certificate
 - is_certified: Whether the vehicle is certified. Certified cars are covered through warranty period.
+
+## Statistical methods:
+After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.
+
+## Computational steps
+1. Data-Preprocessing and feature engineering
+    1. Use common sense to filter variables that are not related to car prices. 
+    2. Deal with missing values and outliers.
+    3. delete the columns with high multi-collinearity.
+    4. Use label encoding and one-hot encoding to transform the categorical variables.
+2. Split the data based on the last digit of zipcode
+3. Run parallel jobs to fit the data with MLR models
+4. Average the coefficients after we get the result of 10 separate models.
