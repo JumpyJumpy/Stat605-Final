@@ -17,8 +17,8 @@ After performing feature engineering processing on the variables, we use multipl
 4. Average the coefficients after we get the result of 10 separate models.
 
 
-```{r}
-
+```{bash}
+ls
 
 
 ```
