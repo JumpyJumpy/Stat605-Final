@@ -171,10 +171,43 @@ pre code {
 <h1>Stat 605 Final Project</h1>
 <div id="data-description" class="section level2">
 <h2>Data Description</h2>
-<p>Our data set comes from <a href="https://www.kaggle.com/ananaymital/us-used-cars-dataset" class="uri">https://www.kaggle.com/ananaymital/us-used-cars-dataset</a> , the dataset contains details of 3 million real used cars in the United States. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.</p>
+<p>Our data set comes from <a href="https://www.kaggle.com/ananaymital/us-used-cars-dataset" class="uri">https://www.kaggle.com/ananaymital/us-used-cars-dataset</a> , the dataset contains details of 3 million real used cars in the United States. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars.</p>
+</div>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>Our task is to explore the relationship between the price of used cars and all kinds of information about used cars. The data set comes from <a href="https://www.kaggle.com/ananaymital/us-used-cars-dataset" class="uri">https://www.kaggle.com/ananaymital/us-used-cars-dataset</a> , which contains details of 3 million real used cars, including their brand, power and fuel, loss, and certificate information etc. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.</p>
+<div id="dependent-variable" class="section level3">
+<h3>Dependent Variable</h3>
+<p>price</p>
+</div>
+<div id="predicator-variables" class="section level3">
+<h3>Predicator Variables:</h3>
+<div id="basic-information-of-the-vehicle" class="section level4">
+<h4>Basic information of the vehicle</h4>
+<p>Brand: make_name</p>
+<p>Capacity: back_legroom/front_legroom/body_type/maximum_seating</p>
+<p>Engine: engine_type</p>
+<p>Transmission type: transmission/transmission_display</p>
+<p>Wheel: wheel_system/wheelbase</p>
+</div>
+<div id="power-and-fuel" class="section level4">
+<h4>Power and fuel</h4>
+<p>Power: horsepower</p>
+<p>Fuel: combine_fuel_economy/fuel_tank_volume/fuel_type</p>
+</div>
+<div id="loss" class="section level4">
+<h4>Loss</h4>
+<p>Accident: has_accidents/vehicle_damage_category/theft_title:</p>
+<p>Use: year/is_new</p>
+</div>
+<div id="certificate" class="section level4">
+<h4>Certificate</h4>
+<p>Certificate:is_certified</p>
+</div>
+</div>
 </div>
 <div id="statistical-methods" class="section level2">
-<h2>Statistical Methods</h2>
+<h2>Statistical methods</h2>
 <p>After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.</p>
 </div>
 <div id="computational-steps" class="section level2">
@@ -196,12 +229,12 @@ pre code {
 <h2>Reading Data</h2>
 <pre class="r"><code>header_desired &lt;- c(&quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
 
-
 header &lt;- colnames(read.csv(text = readLines(&quot;used_cars_data.csv&quot;, n = 1)))
 idx &lt;- match(header_desired, header)
 print(idx)</code></pre>
 <pre><code>##  [1] 49 43 17 29  2 22  6 44 16 57 58 62 64 56 28 10 23 24 25 61 66 33 55 31</code></pre>
 <pre class="r"><code>cat(idx, file = &quot;col_index.txt&quot;)</code></pre>
+<pre class="bash"><code></code></pre>
 </div>
 </div>
 
