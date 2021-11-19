@@ -9,17 +9,23 @@ price
 ### Predicator Variables:
 #### Basic information of the vehicle
 Brand: make_name
+
 Capacity: back_legroom/front_legroom/body_type/maximum_seating
+
 Engine: engine_type
+
 Transmission type: transmission/transmission_display
+
 Wheel: wheel_system/wheelbase
 
 #### Power and fuel
 Power: horsepower
+
 Fuel: combine_fuel_economy/fuel_tank_volume/fuel_type
 
 #### Loss
 Accident: has_accidents/vehicle_damage_category/theft_title: 
+
 Use: year/is_new
 
 #### Certificate
