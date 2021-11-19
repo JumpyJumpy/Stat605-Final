@@ -238,13 +238,13 @@ cat(idx, file = &quot;col_index.txt&quot;, sep = &quot;,&quot;)</code></pre>
 <pre class="bash"><code>### This a bash chunk
 touch cars{0..9}.txt
 
-tail +2 used_cars_data.csv | { col_index=$(cat col_index.txt);
-while read i; do
-    n=$(echo $i | cut -d &quot;,&quot; -f 12)
-    n=${n: -1}
-    echo $n
-    echo $i | cut -d &quot;,&quot; -f $col_index &gt;&gt;cars${n}.txt
-done
+tail +2 used_cars_data.csv | {
+    col_index=$(cat col_index.txt)
+    while read i; do
+        n=$(echo $i | cut -d &quot;,&quot; -f 12)
+        n=${n: -1}
+        echo $i | cut -d &quot;,&quot; -f $col_index &gt;&gt;cars${n}.txt
+    done
 }</code></pre>
 </div>
 </div>
