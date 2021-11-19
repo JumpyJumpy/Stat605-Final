@@ -48,21 +48,27 @@ After performing feature engineering processing on the variables, we use multipl
 4. Average the coefficients after we get the result of 10 separate models.
 
 ## Reading Data
+
+**The following chunk is an R chunk.**
 ```{r}
+### This is a R chunk
 header_desired <- c("dealer_zip", "price", "make_name", "exterior_color", "interior_color", "back_legroom", "front_legroom", "body_type", "maximum_seating", "engine_type", "transmission", "transmission_display", "wheel_system", "wheelbase", "torque", "horsepower", "combine_fuel_economy", "fuel_tank_volume", "fuel_type", "has_accidents", "vehicle_damage_category", "year", "is_new", "theft_title", "is_certified")
 
 header <- colnames(read.csv(text = readLines("used_cars_data.csv", n = 1)))
 idx <- match(header_desired, header)
 cat(idx, file = "col_index.txt", sep = ",")
 ```
+**The following chunk is a bash chunk.**
 ```{bash eval = FALSE}
+### This a bash chunk
 touch cars{0..9}.txt
 
-cat used_cars_data.csv | { col_index=$(cat col_index.txt);
+tail +2 used_cars_data.csv | { col_index=$(cat col_index.txt);
 while read i; do
-    n=$(cut -d "," -f 12 i)
-    n=$($n:-1)
-    cut -d "," -f $col_index i >>cars${n}.txt
+    n=$(echo $i | cut -d "," -f 12)
+    n=${n: -1}
+    echo $n
+    echo $i | cut -d "," -f $col_index >>cars${n}.txt
 done
 }
 ```

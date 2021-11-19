@@ -1,10 +1,11 @@
 #!/bin/bash
 touch cars{0..9}.txt
 
-cat used_cars_data.csv | { col_index=$(cat col_index.txt);
+tail +2 used_cars_data.csv | { col_index=$(cat col_index.txt);
 while read i; do
-    n=$(cut -d "," -f 12 i)
-    n=$($n:-1)
-    cut -d "," -f $col_index i >>cars${n}.txt
+    n=$(echo $i | cut -d "," -f 12)
+    n=${n: -1}
+    echo $n
+    echo $i | cut -d "," -f $col_index >>cars${n}.txt
 done
 }
