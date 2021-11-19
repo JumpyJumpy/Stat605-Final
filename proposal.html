@@ -170,33 +170,38 @@ pre code {
 <div id="stat-605-final-project" class="section level1">
 <h1>Stat 605 Final Project</h1>
 <div id="data-description" class="section level2">
-<h2>Data description</h2>
-<p>Our data set comes from <a href="https://www.kaggle.com/ananaymital/us-used-cars-dataset" class="uri">https://www.kaggle.com/ananaymital/us-used-cars-dataset</a> , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. We split decided zipcode</p>
+<h2>Data Description</h2>
+<p>Our data set comes from <a href="https://www.kaggle.com/ananaymital/us-used-cars-dataset" class="uri">https://www.kaggle.com/ananaymital/us-used-cars-dataset</a> , the dataset contains details of 3 million real used cars in the United States. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.</p>
 </div>
 <div id="statistical-methods" class="section level2">
-<h2>Statistical methods:</h2>
+<h2>Statistical Methods</h2>
 <p>After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.</p>
 </div>
 <div id="computational-steps" class="section level2">
-<h2>Computational steps</h2>
+<h2>Computational Steps</h2>
 <ol style="list-style-type: decimal">
 <li>Data-Preprocessing and feature engineering
 <ol style="list-style-type: decimal">
 <li>Use common sense to filter variables that are not related to car prices.</li>
 <li>Deal with missing values and outliers.</li>
-<li>delete the columns with high multi-collinearity.</li>
+<li>Delete the columns with high multi-collinearity.</li>
 <li>Use label encoding and one-hot encoding to transform the categorical variables.</li>
 </ol></li>
 <li>Split the data based on the last digit of zipcode</li>
 <li>Run parallel jobs to fit the data with MLR models</li>
 <li>Average the coefficients after we get the result of 10 separate models.</li>
 </ol>
-<pre class="bash"><code>ls
-</code></pre>
-<pre><code>## README.md
-## code
-## proposal.Rmd
-## proposal.html</code></pre>
+</div>
+<div id="reading-data" class="section level2">
+<h2>Reading Data</h2>
+<pre class="r"><code>header_desired &lt;- c(&quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
+
+
+header &lt;- colnames(read.csv(text = readLines(&quot;used_cars_data.csv&quot;, n = 1)))
+idx &lt;- match(header_desired, header)
+print(idx)</code></pre>
+<pre><code>##  [1] 49 43 17 29  2 22  6 44 16 57 58 62 64 56 28 10 23 24 25 61 66 33 55 31</code></pre>
+<pre class="r"><code>cat(idx, file = &quot;col_index.txt&quot;)</code></pre>
 </div>
 </div>
 

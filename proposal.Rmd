@@ -1,12 +1,12 @@
 # Stat 605 Final Project
 
-## Data description
-Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. We split decided zipcode
+## Data Description
+Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars in the United States. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.
 
-## Statistical methods:
+## Statistical Methods
 After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.
 
-## Computational steps
+## Computational Steps
 1. Data-Preprocessing and feature engineering
     1. Use common sense to filter variables that are not related to car prices.
     2. Deal with missing values and outliers.
@@ -16,9 +16,19 @@ After performing feature engineering processing on the variables, we use multipl
 3. Run parallel jobs to fit the data with MLR models
 4. Average the coefficients after we get the result of 10 separate models.
 
+## Reading Data
+```{r}
+header_desired <- c("price", "make_name", "exterior_color", "interior_color", "back_legroom", "front_legroom", "body_type", "maximum_seating", "engine_type", "transmission", "transmission_display", "wheel_system", "wheelbase", "torque", "horsepower", "combine_fuel_economy", "fuel_tank_volume", "fuel_type", "has_accidents", "vehicle_damage_category", "year", "is_new", "theft_title", "is_certified")
 
-```{bash}
-ls
+
+header <- colnames(read.csv(text = readLines("used_cars_data.csv", n = 1)))
+idx <- match(header_desired, header)
+print(idx)
+cat(idx, file = "col_index.txt")
+```
+```{bash eval = FALSE}
+
+
 
 
 ```

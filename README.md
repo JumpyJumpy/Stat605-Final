@@ -1,6 +1,6 @@
 # Stat 605 Final Project
 
-## Data description
+## Data Description
 Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.
 
 ### Dependent Variable：
@@ -41,10 +41,10 @@ Basic information of the vehicle
 #### Certificate
 - is_certified: Whether the vehicle is certified. Certified cars are covered through warranty period.
 
-## Statistical methods:
+## Statistical Methods:
 After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.
 
-## Computational steps
+## Computational Steps
 1. Data-Preprocessing and feature engineering
     1. Use common sense to filter variables that are not related to car prices. 
     2. Deal with missing values and outliers.
