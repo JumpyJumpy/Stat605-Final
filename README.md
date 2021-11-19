@@ -1,7 +1,7 @@
 # Stat 605 Final Project
 
 ## Data description
-Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. We split decided zipcode
+Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code in each row.
 
 ### Dependent Variable：
 - price: Sale price of the vehicle on the website.
