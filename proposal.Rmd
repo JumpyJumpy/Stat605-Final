@@ -1,1 +1,25 @@
+# Stat 605 Final Project
 
+## Data description
+Our data set comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset , the dataset contains details of 3 million real used cars. We want to use these data, that is, all kinds of information about used cars, to build the model and predict the price of used cars. We split decided zipcode
+
+Statistical methods:
+After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.
+
+Computational steps:
+1.	Data-Preprocessing and feature engineering
+a)	Use common sense to filter variables that are not related to car prices.
+b)	Deal with missing values and outliers.
+c)	Delete the columns with high multicollinearity.
+d)	Use label encoding and one-hot encoding to transform the categorical variables.
+2.	Split the data based on the last digit of zipcode
+3.	Run parallel jobs to fit the data with MLR models
+4.	Average the coefficients after we get the result of 10 separate models.
+
+
+
+```{r}
+
+
+
+```
