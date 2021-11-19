@@ -227,14 +227,20 @@ pre code {
 </div>
 <div id="reading-data" class="section level2">
 <h2>Reading Data</h2>
-<pre class="r"><code>header_desired &lt;- c(&quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
+<pre class="r"><code>header_desired &lt;- c(&quot;dealer_zip&quot;, &quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
 
 header &lt;- colnames(read.csv(text = readLines(&quot;used_cars_data.csv&quot;, n = 1)))
 idx &lt;- match(header_desired, header)
-print(idx)</code></pre>
-<pre><code>##  [1] 49 43 17 29  2 22  6 44 16 57 58 62 64 56 28 10 23 24 25 61 66 33 55 31</code></pre>
-<pre class="r"><code>cat(idx, file = &quot;col_index.txt&quot;)</code></pre>
-<pre class="bash"><code></code></pre>
+cat(idx, file = &quot;col_index.txt&quot;, sep = &quot;,&quot;)</code></pre>
+<pre class="bash"><code>touch cars{0..9}.txt
+
+cat used_cars_data.csv | { col_index=$(cat col_index.txt);
+while read i; do
+    n=$(cut -d &quot;,&quot; -f 12 i)
+    n=$($n:-1)
+    cut -d &quot;,&quot; -f $col_index i &gt;&gt;cars${n}.txt
+done
+}</code></pre>
 </div>
 </div>
 

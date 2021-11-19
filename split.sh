@@ -6,6 +6,5 @@ while read i; do
     n=$(cut -d "," -f 12 i)
     n=$($n:-1)
     cut -d "," -f $col_index i >>cars${n}.txt
-    break
 done
 }
