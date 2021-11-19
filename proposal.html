@@ -228,7 +228,8 @@ pre code {
 <div id="reading-data" class="section level2">
 <h2>Reading Data</h2>
 <p><strong>The following chunk is an R chunk.</strong></p>
-<pre class="r"><code>header_desired &lt;- c(&quot;dealer_zip&quot;, &quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
+<pre class="r"><code>### This is a R chunk
+header_desired &lt;- c(&quot;dealer_zip&quot;, &quot;price&quot;, &quot;make_name&quot;, &quot;exterior_color&quot;, &quot;interior_color&quot;, &quot;back_legroom&quot;, &quot;front_legroom&quot;, &quot;body_type&quot;, &quot;maximum_seating&quot;, &quot;engine_type&quot;, &quot;transmission&quot;, &quot;transmission_display&quot;, &quot;wheel_system&quot;, &quot;wheelbase&quot;, &quot;torque&quot;, &quot;horsepower&quot;, &quot;combine_fuel_economy&quot;, &quot;fuel_tank_volume&quot;, &quot;fuel_type&quot;, &quot;has_accidents&quot;, &quot;vehicle_damage_category&quot;, &quot;year&quot;, &quot;is_new&quot;, &quot;theft_title&quot;, &quot;is_certified&quot;)
 
 header &lt;- colnames(read.csv(text = readLines(&quot;used_cars_data.csv&quot;, n = 1)))
 idx &lt;- match(header_desired, header)
