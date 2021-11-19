@@ -19,7 +19,7 @@ Basic information of the vehicle
 - maximum_seating: Total number of seats.
 #### Engine
 - engine_type: The engine configuration. Eg: I4, V6, etc.
-- Transmission
+#### Transmission
 - transmission: Type of transmission, such as Automatic, Manual, etc.
 - transmission_display: Number of gears and type of transmission.
 #### Wheel
