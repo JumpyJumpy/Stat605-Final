@@ -1,0 +1,77 @@
+## Stat 605 Final Project
+
+Lin,Shubo,slin268@wisc.edu  
+Zhu,Xiaowei,xzhu339@Wisc.edu  
+Zhou,Qilu,qzhou85@wisc.edu  
+Qu,Hengrui,hqu29@wisc.edu  
+Luo,Tianyue,tluo48@wisc.edu  
+
+### Data Description
+Our dataset comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset. Our task is to explore the relationship between the price of used cars and all kinds of information about used cars. The dataset contains details of 3 million real used cars, including their brands, power and fuel, loss, and certificate information etc. To assure randomness, we split the dataset into ten subsets based on the last digit of the zip code provided in each row.
+
+#### Dependent Variable
+price
+
+#### Predicator Variables:
+##### Basic information of the vehicle
+Brand: make_name
+
+Capacity: back_legroom/front_legroom/body_type/maximum_seating
+
+Engine: engine_type
+
+Transmission type: transmission/transmission_display
+
+Wheel: wheel_system/wheelbase
+
+##### Power and fuel
+Power: horsepower
+
+Fuel: combine_fuel_economy/fuel_tank_volume/fuel_type
+
+##### Loss
+Accident: has_accidents/vehicle_damage_category/theft_title
+
+Use: year/is_new
+
+##### Certificate
+Certificate:is_certified
+
+### Statistical methods
+After performing feature engineering processing on the variables, we use multiple linear regression model to predict the price of cars.
+
+### Computational Steps
+1. Data-Preprocessing and feature engineering
+    1. Use common sense to filter variables that are not related to car prices.
+    2. Deal with missing values and outliers.
+    3. Delete the columns with high multi-collinearity.
+    4. Use label encoding and one-hot encoding to transform the categorical variables.
+2. Split the data based on the last digit of zipcode
+3. Run parallel jobs to fit the data with MLR models
+4. Average the coefficients after we get the result of 10 separate models.
+
+### Reading Data
+
+**The following chunk is an R chunk. It was written to find the indices of our desired columns.**
+```{r eval=FALSE}
+### This is a R chunk
+header_desired <- c("dealer_zip", "price", "make_name", "exterior_color", "interior_color", "back_legroom", "front_legroom", "body_type", "maximum_seating", "engine_type", "transmission", "transmission_display", "wheel_system", "wheelbase", "torque", "horsepower", "combine_fuel_economy", "fuel_tank_volume", "fuel_type", "has_accidents", "vehicle_damage_category", "year", "is_new", "theft_title", "is_certified")
+
+header <- colnames(read.csv(text = readLines("used_cars_data.csv", n = 1)))
+idx <- match(header_desired, header)
+cat(idx, file = "col_index.txt", sep = ",")
+```
+**The following chunk is a bash chunk. It was written to read the data and removed the irrelevant columns without requiring a large amount of memory.**
+```{bash eval=FALSE}
+### This a bash chunk
+touch cars{0..9}.txt
+
+tail +2 used_cars_data.csv | {
+    col_index=$(cat col_index.txt)
+    while read i; do
+        n=$(echo $i | cut -d "," -f 12)
+        n=${n: -1}
+        echo $i | cut -d "," -f $col_index >>cars${n}.txt
+    done
+}
+```
