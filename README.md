@@ -50,6 +50,6 @@ After performing feature engineering processing on the variables, we use multipl
     2. Deal with missing values and outliers.
     3. delete the columns with high multi-collinearity.
     4. Use label encoding and one-hot encoding to transform the categorical variables.
-2. Split the data based on the last digit of zipcode
-3. Run parallel jobs to fit the data with MLR models
-4. Average the coefficients after we get the result of 10 separate models.
+2. Split the data based on the last digit of zipcode.
+3. Run parallel jobs to fit the data with MLR models.
+4. Update the coefficients by using stochastic gradient decent.
