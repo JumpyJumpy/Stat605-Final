@@ -48,7 +48,7 @@ After performing feature engineering processing on the variables, we use multipl
     4. Use label encoding and one-hot encoding to transform the categorical variables.
 2. Split the data based on the last digit of zipcode
 3. Run parallel jobs to fit the data with MLR models
-4. Average the coefficients after we get the result of 10 separate models.
+4. Updating the coefficients by using stochastic gradient decent.
 
 ### Reading Data
 
