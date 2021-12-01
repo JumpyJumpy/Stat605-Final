@@ -1,6 +1,10 @@
 #!/bin/bash
+if [[ $# -ne 1 ]]; then
+    echo -e "ERROR: need exact 1 argument\n"
+    exit 0
+fi
 
-tail +2 used_cars_data.csv | {
+tail +2 $1 | {
     col_index=$(cat col_index.txt)
     while read i; do
         n=$(echo $i | cut -d "," -f 12)
