@@ -4,7 +4,7 @@ if [[ $# -ne 1 ]]; then
     exit 0
 fi
 
-tail +2 $1 | {
+cat $1 | {
     col_index=$(cat col_index.txt)
     while read i; do
         n=$(echo $i | cut -d "," -f 12)
