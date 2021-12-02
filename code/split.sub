@@ -9,7 +9,7 @@ arguments = $(file)
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = $(file)
+transfer_input_files = $(file), col_index.txt
 
 request_cpus = 8
 request_memory = 4GB

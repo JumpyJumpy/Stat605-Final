@@ -10,7 +10,7 @@ cat $1 | {
         n=$(echo $i | cut -d "," -f 12)
         n=${n: -1}
         if [[ $n =~ [0-9] ]]; then
-            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.txt
+            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
         fi
     done
 }
