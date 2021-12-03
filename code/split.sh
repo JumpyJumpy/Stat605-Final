@@ -23,5 +23,9 @@ cat $1 | {
         if [[ $n == "Jeep" ]]; then
             echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
         fi
+        
+        if [[ $n == "BMW" ]]; then
+            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
+        fi
     done
 }
