@@ -1,0 +1,18 @@
+log    =    log/mlr_$(Cluster)_$(proc).log
+error  =  error/mlr_$(Cluster)_$(proc).err
+output = output/mlr_$(Cluster)_$(proc).out
+
+universe = vanilla
+
+executable = ./code/split.sh
+arguments = $(file)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = $(file), header.csv, ./code/mlr_by_brand.R
+
+request_cpus = 8
+request_memory = 4GB
+request_disk = 4GB
+
+queue file from ./code/mlr_file_list.txt

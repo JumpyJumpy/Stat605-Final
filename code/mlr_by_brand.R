@@ -12,4 +12,7 @@ colnames(dataset) <- header
 
 mlr_by_brand <- lm(price ~. - make_name)
 mlr_summary <- summary(mlr_by_brand)
+
+sink(paste0("mlr_", file, ".txt"))
 print(mlr_summary)
+sink()
