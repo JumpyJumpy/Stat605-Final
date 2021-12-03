@@ -11,10 +11,17 @@ cat $1 | {
         if [[ $n == "Hyundai" ]]; then
             echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
         fi
-	if [[ $n = "Ford" ]]; then
 
+        if [[ $n == "Chevrolet" ]]; then
+            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
+        fi
 
+        if [[ $n == "Ford" ]]; then
+            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
+        fi
 
-
+        if [[ $n == "Jeep" ]]; then
+            echo $i | cut -d "," -f ${col_index} >>cars_random_${n}.csv
+        fi
     done
 }
