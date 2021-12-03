@@ -55,7 +55,7 @@ After performing feature engineering processing on the variables, we use multipl
 **The following chunk is an R chunk. It was written to find the indices of our desired columns.**
 ```{r eval=FALSE}
 ### This is a R chunk
-header_desired <- c("dealer_zip", "price", "make_name", "exterior_color", "interior_color", "back_legroom", "front_legroom", "body_type", "maximum_seating", "engine_type", "transmission", "transmission_display", "wheel_system", "wheelbase", "torque", "horsepower", "combine_fuel_economy", "fuel_tank_volume", "fuel_type", "has_accidents", "vehicle_damage_category", "year", "is_new", "theft_title", "is_certified", "price")
+header_desired <- c("dealer_zip", "price", "make_name", "exterior_color", "interior_color", "back_legroom", "front_legroom", "body_type", "maximum_seating", "engine_type", "transmission", "transmission_display", "wheel_system", "wheelbase", "torque", "horsepower", "combine_fuel_economy", "fuel_tank_volume", "fuel_type", "has_accidents", "vehicle_damage_category", "year", "is_new", "theft_title", "is_certified")
 
 header <- colnames(read.csv(text = readLines("used_cars_data.csv", n = 1)))
 idx <- match(header_desired, header)
