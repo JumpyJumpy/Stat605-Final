@@ -7,10 +7,11 @@ if (length(args) == 2) {
 }
 
 header <- colnames(read.csv("header.csv"))
-dataset <- read.csv(file, header = F)
+dataset <- read.csv("brand/cars_BMW.csv", header = FALSE, quote = "", na.strings = c("", "--", "NA", "NaN"), stringsAsFactors = TRUE)
 colnames(dataset) <- header
+summary(dataset)
 
-mlr_by_brand <- lm(price ~. - make_name)
+mlr_by_brand <- lm(price ~. - make_name - dearler_zip, data = dataset)
 mlr_summary <- summary(mlr_by_brand)
 
 sink(paste0("mlr_", file, ".txt"))
