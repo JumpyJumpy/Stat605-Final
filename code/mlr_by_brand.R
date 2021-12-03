@@ -14,7 +14,7 @@ dataset$combine_fuel_economy <- NULL
 
 mlr_by_brand <- aov(price ~ . - make_name - dealer_zip, data = dataset)
 # mlr_by_brand <- lm(price ~. - make_name - dearler_zip, data = dataset)
-mlr_summary <- summary(mlr_by_brand)Å
+mlr_summary <- summary(mlr_by_brand)
 
 sink(paste0("mlr_", file, ".txt"))
 print(mlr_summary)
