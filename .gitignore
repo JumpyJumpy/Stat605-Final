@@ -4,3 +4,4 @@ car*.txt
 /log/*
 /error/*
 /output/*
+.DS_Store
