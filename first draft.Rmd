@@ -1,5 +1,5 @@
 ---
-title: "first draft"
+title: "Project First Draft"
 date: "12/2/2021"
 output: html_document
 ---
@@ -7,9 +7,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## Project First Draft
-
 #### github link: https://github.com/RANEERAN/Stat605-Final
 
 #### group members:
@@ -28,13 +25,13 @@ Luo,Tianyue(tluo48@wisc.edu)
 
 Our dataset comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset. This is a dataset contains 3 million US used cars, including their brands, power and fuel, loss, and certificate information etc. Our goal is to explore the relationship between the car price and other information about used cars. 
 
-This data has 65 variables originally, and by manually delete columns that have a lot of missing values, as well as some have little relation with car price and those have high multicollinearity with other columns, we have 24 variables now.
+The data has 65 variables originally, and by manually delete columns that have a lot of missing values, as well as some have little relation with car price and those have high multicollinearity with other columns, the dataset has 17 variables. We divide these variables into seven categories, capacity, engine, transmission, wheel, torque, power and fuel, loss and vehicle.
 
 ### Methods
 
-We are interested in finding factors that would affect the price of used cars. For parallelization, we split the data by top 5 brands of used cars. We got the brands' name by looking at the top 5 brands and their corresponding frequence from the first 6000 lines of our data. The frequency table is as follows:
+We are interested in finding factors that would affect the price of used cars and whether different brands of cars would have different influential factors. So we split the data by the top 5 brands of used cars. We got the brands' name by listing the top 5 brands and their corresponding frequency from the first 6000 lines of our data. The frequency table is as follows:
 
-| $brands$ | $Freq$ |
+| $Brand$ | $Freq$ |
 |:---:|:----:|
 |Hyundai|849|
 |Ford|542|
@@ -42,6 +39,30 @@ We are interested in finding factors that would affect the price of used cars. F
 |Jeep|444|
 |Kia|423|
 
-We run five linear regression simultaneously, and get the significant variables to see which factors would influence car price. We would analyze each models, the union and intersection of all significant variables to see the important factors.
-
 ### Results Interpretation
+| $Variable$ | $Df$ | $Sum Sq$ | $Mean Sq$ | $F value$ | $Pr(>F)$ |   
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|back_legroom        |    71| 1.4602e+13| 2.0567e+11|  3853.5110| < 2.2e-16 ***|
+|body_type           |      8| 1.3964e+12| 1.7454e+11|  3270.3820| < 2.2e-16 ***|
+|engine_type        |    13| 9.3283e+11| 7.1756e+10|  1344.4784| < 2.2e-16 ***|
+|front_legroom       |     27| 1.9447e+12| 7.2026e+10|  1349.5265| < 2.2e-16 ***|
+|fuel_tank_volume    |    49| 1.2966e+11| 2.6461e+09|    49.5791| < 2.2e-16 ***|
+|has_accidents       |      1| 4.7254e+10| 4.7254e+10|   885.3891| < 2.2e-16 ***|
+|horsepower          |      1| 3.1855e+11| 3.1855e+11|  5968.6123| < 2.2e-16 ***|
+|is_new              |      1| 2.1814e+10| 2.1814e+10|   408.7168| < 2.2e-16 ***|
+|maximum_seating     |      9| 4.9386e+10| 5.4873e+09|   102.8149| < 2.2e-16 ***|
+|theft_title         |      1| 5.9758e+08| 5.9758e+08|    11.1968| 0.0008196 ***|
+|torque              |    162| 3.9020e+11| 2.4086e+09|    45.1296| < 2.2e-16 ***|
+|transmission        |      2| 1.4584e+08| 7.2919e+07|     1.3663| 0.2550632  |  
+|transmission_display|     23| 8.0544e+09| 3.5019e+08|     6.5615| < 2.2e-16 ***|
+|wheel_system        |      4| 7.9713e+10| 1.9928e+10|   373.3900| < 2.2e-16 ***|
+|wheelbase           |     33| 3.6968e+10| 1.1202e+09|    20.9895| < 2.2e-16 ***|
+|year                |      1| 7.1366e+11| 7.1366e+11| 13371.5963| < 2.2e-16 ***|
+|Residuals           | 142682| 7.6151e+12| 5.3371e+07|||                        
+
+We run five ANOVA models simultaneously, and get the significant variables to see which factors would influence car price. The above table shows results of ANOVA of Chevrolet. Except transmission and wheelbase, other factors are all significant and influential regardless of brands. But for Chevrolet and Ford, p-values for transmission are 0.256 and 0.332 respectively, that is transmission doesn't significantly affect used cars price. And for Hyundai, p-value of wheelbase is 0.349, that is to say wheelbase is not a significant factor in influencing price. Overall, when considered used cars price, influential factors are similar in different brands.
+
+### Criticism
+We get clear and reasonable results from ANOVA since we have a relatively large sample size as well as the process of collecting data, the normality and independency assumptions are satisfied.
+
+However, since we have manually selected the variables in advance, we inevitably get the results that almost all the factors we take into accounts are significant. Considered our goal is to see whether different brands of cars will have different influential factors, some improvements could be run ANOVA with all 65 variables or to run ridge regression to find the most important factors.
