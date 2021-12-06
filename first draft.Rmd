@@ -1,0 +1,47 @@
+---
+title: "first draft"
+date: "12/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Project First Draft
+
+#### github link: https://github.com/RANEERAN/Stat605-Final
+
+#### group members:
+
+Lin,Shubo(slin268@wisc.edu);
+
+Zhu,Xiaowei(xzhu339@wisc.edu);
+
+Zhou,Qilu(qzhou85@wisc.edu); 
+
+Qu,Hengrui(hqu29@wisc.edu);  
+
+Luo,Tianyue(tluo48@wisc.edu)
+
+### Data Description
+
+Our dataset comes from https://www.kaggle.com/ananaymital/us-used-cars-dataset. This is a dataset contains 3 million US used cars, including their brands, power and fuel, loss, and certificate information etc. Our goal is to explore the relationship between the car price and other information about used cars. 
+
+This data has 65 variables originally, and by manually delete columns that have a lot of missing values, as well as some have little relation with car price and those have high multicollinearity with other columns, we have 24 variables now.
+
+### Methods
+
+We are interested in finding factors that would affect the price of used cars. For parallelization, we split the data by top 5 brands of used cars. We got the brands' name by looking at the top 5 brands and their corresponding frequence from the first 6000 lines of our data. The frequency table is as follows:
+
+| $brands$ | $Freq$ |
+|:---:|:----:|
+|Hyundai|849|
+|Ford|542|
+|Chevrolet|510|
+|Jeep|444|
+|Kia|423|
+
+We run five linear regression simultaneously, and get the significant variables to see which factors would influence car price. We would analyze each models, the union and intersection of all significant variables to see the important factors.
+
+### Results Interpretation
