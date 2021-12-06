@@ -1,16 +1,17 @@
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) == 2) {
+if (length(args) == 1) {
     file <- as.character(args[1])
 } else {
     cat("ERROR\n", file = stderr())
     stop()
 }
 
-header <- colnames(read.csv("header.csv"))
-dataset <- read.csv("brand/cars_BMW.csv", header = FALSE, quote = "", na.strings = c("", "--", "NA", "NaN"), stringsAsFactors = TRUE)
-colnames(dataset) <- header
+
+brand <- c("Hyundai", "Chevrolet", "Ford", "Jeep", "BMW")
+dataset <- read.csv("brand/cars_BMW.csv", na.strings = c("", "--", "NA", "NaN"), stringsAsFactors = TRUE, row.names = 1)
+year <- 2021 - dataset$year
 summary(dataset)
-dataset$combine_fuel_economy <- NULL
+
 
 mlr_by_brand <- aov(price ~ . - make_name - dealer_zip, data = dataset)
 # mlr_by_brand <- lm(price ~. - make_name - dearler_zip, data = dataset)
