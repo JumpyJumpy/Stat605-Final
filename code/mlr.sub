@@ -15,4 +15,4 @@ request_cpus = 1
 request_memory = 2GB
 request_disk = 500MB
 
-queue file from ./code/mlr_file_list.txt
+queue file from mlr_file_list.txt
