@@ -29,15 +29,15 @@ The data has 65 variables originally, and by manually delete columns that have a
 
 ### Methods
 
-We are interested in finding factors that would affect the price of used cars and whether different brands of cars would have different influential factors. So we split the data by the top 5 brands of used cars. We got the brands' name by listing the top 5 brands and their corresponding frequency from the first 6000 lines of our data. The frequency table is as follows:
+We are interested in finding factors that would affect the price of used cars and whether different brands of cars would have different influential factors. So we split the data by the top 5 brands of used cars. We got the brands' name by listing the top 5 brands and their corresponding frequency from the first 10000 lines of our data. The frequency table is as follows:
 
 | $Brand$ | $Freq$ |
 |:---:|:----:|
-|Hyundai|849|
-|Ford|542|
-|Chevrolet|510|
-|Jeep|444|
-|Kia|423|
+|Hyundai|1554|
+|Ford|895|
+|Jeep|820|
+|Chevrolet|444|
+|BMW|673|
 
 ### Results Interpretation
 | $Variable$ | $Df$ | $Sum Sq$ | $Mean Sq$ | $F value$ | $Pr(>F)$ |   
