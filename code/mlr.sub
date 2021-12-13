@@ -12,7 +12,7 @@ when_to_transfer_output = ON_EXIT
 transfer_input_files = ./brand/$(file), http://proxy.chtc.wisc.edu/SQUID/chtc/R402.tar.gz, ./brand/header.csv, ./code/mlr_by_brand.R
 
 request_cpus = 1
-request_memory = 500MB
+request_memory = 2GB
 request_disk = 500MB
 
 queue file from ./code/mlr_file_list.txt
