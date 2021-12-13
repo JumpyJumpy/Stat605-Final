@@ -24,7 +24,7 @@ for (dirs in brand_csv) {
     summary(dataset_nona)
 
     #mlr_by_brand <- stepwise(prirce ~., dataset_nona)
-    mlr_by_brand <- lm(price ~ ., data = dataset_nona)
+    mlr_by_brand <- aov(price ~ ., data = dataset_nona)
     mlr_summary <- summary(mlr_by_brand)
     mlr_results[[dirs]] <- mlr_summary
 
